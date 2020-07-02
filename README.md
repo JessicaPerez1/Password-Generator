@@ -20,17 +20,17 @@ The new password will appear in place of "Your secure password" on our web page
 
 ## Web app screenshot
 
-![web page screenshot]()
+![web page screenshot](PasswordGeneratorScreenshot.png)
 
 ## File submission
 
 HTML and CSS files submitted for review:
 
 - The URL of the deployed application:
-  ![Deployed app URL]()
+  ![Deployed app URL](https://jessicaperez1.github.io/Password-Generator/)
 
 - The URL of the GitHub repository:
 
-![GitHub repository]()
+![GitHub repository](https://github.com/JessicaPerez1/Password-Generator.git)
 
 © 2019 Trilogy Education Services, a 2U, Inc. brand. All Rights Reserved.
