@@ -1,8 +1,8 @@
 ## Purpose of this project
 
-Create an application that generates a random password based on user input that will meet certain creteria.
+Creatde an application that generates a random password based on user input that will meet certain creteria.
 
-If you are unfamiliar with special characters, take a look at [some examples](https://www.owasp.org/index.php/Password_special_characters).
+I worked collaboratively with my study group on this project.
 
 ## What I did
 
