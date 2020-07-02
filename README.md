@@ -27,7 +27,7 @@ The new password will appear in place of "Your secure password" on our web page
 HTML, JS and CSS files submitted for review:
 
 - The URL of the deployed application:
-  ![Deployed app URL](https://jessicaperez1.github.io/Password-Generator/)
+  ![Deployed app URL](https://jessicaperez1.github.io/Password-Generator/.gif)
 
 - The URL of the GitHub repository:
 
