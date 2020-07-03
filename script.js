@@ -11,23 +11,20 @@ var alphabetCaps = "ABCDEFGHIJKLMNOPQRSTUVWXYZ".split("");
 var num = "1234567890".split("");
 var sym = "!#$ %& '()*+,-./:;<=>?@[]^_`{|}~".split("");
 
-// variable grouping all characters into 1 string then convert into an array
-var majorBank = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ1234567890!#$ %& '()*+,-./:;<=>?@[]^_`{|}~".split(
-  ""
-);
-//set a newPassword variable to an empty array we will populate as we get user input
-var newPassword = [];
-
 // Write password to the #password input with generatePassword() function
-
 function generatePassword() {
-  //declare passwordLength var inside the generatePassword function
-  var passwordLength;
+  var majorBank = [];
   //ask user how long they want the password to be
-  passwordLength = prompt("How long would you like the password to be?");
-  //if the password >128 or <8, user does NOT meet creteria, run the function generatePassword again, if user input meets creteria, move on to next
-  if (passwordLength > 128 || passwordLength < 8) {
-    alert("Please choose a valid number");
+  passwordLength = prompt(
+    "Enter a password length between 8 and 128 characters"
+  );
+  //if the password >128 or <8, or it's not a number, user does NOT meet creteria, run the function generatePassword again, if user input meets creteria, move on to next
+  if (
+    isNaN(passwordLength) ||
+    parseInt(passwordLength) > 128 ||
+    parseInt(passwordLength) < 8
+  ) {
+    alert("Please choose a valid number between 8 and 128");
     return generatePassword();
   }
   // character variables set to false inside the function so that they reset each time we hit generate button
@@ -39,40 +36,43 @@ function generatePassword() {
 
   //set newPassword variable to an empty array, where user input will live
   var newPassword = [];
+  var majorBank = [];
 
-  // check if user wants these character types in their password, will change value to true
-  numbers = confirm("Do you want numbers in your password - enter at least 1?");
+  // confirm user wants these character types in their password, it will change values to true
+  numbers = confirm("Do you want numbers in your password?");
   console.log(numbers);
-  symbols = confirm("Do you want symbols in your password - enter at least 1?");
+  symbols = confirm("Do you want symbols in your password?");
   console.log(symbols);
-  caps = confirm("Do you want caps in your password - enter at least 1?");
+  caps = confirm("Do you want caps in your password?");
   console.log(caps);
-  lowercase = confirm(
-    "Do you want lowercases in your password - enter at least 1?"
-  );
+  lowercase = confirm("Do you want lowercases in your password?");
   console.log(lowercase);
 
-  // count the number of confirms and get the first 4 characters of newPassword, these need to include at least 1 of each character type
+  // count the number of confirms and get the first 4 characters of newPassword
   if (numbers) {
+    majorBank = majorBank.concat(num);
     confirms = confirms + 1;
   }
   if (symbols) {
+    majorBank = majorBank.concat(sym);
     confirms = confirms + 1;
   }
   if (caps) {
+    majorBank = majorBank.concat(alphabetCaps);
     confirms = confirms + 1;
   }
   if (lowercase) {
+    majorBank = majorBank.concat(alphabetLowercase);
     confirms = confirms + 1;
   }
-  //user needs to have at lease 1 of each data type - if not, return to the beginning
-  if (confirms < 4) {
+  //user needs to have at lease 1 confirms - if not, return to the beginning
+  if (confirms === 0) {
     alert("Choose at least 1 of each data type. Try again!");
     return generatePassword();
   }
   console.log(confirms);
 
-  // if confirmed, pull randomly at least 1 character from each of the confirmed lists and add the character at the end of the newPassword array
+  // if confirmed, pull randomly 1 character from each of the lists and add the character at the end of the newPassword array
   if (numbers) {
     newPassword.push(num[randomPull(num)]);
   }
@@ -91,6 +91,7 @@ function generatePassword() {
   for (var i = 0; i < passwordLength - confirms; i++) {
     newPassword.unshift(majorBank[randomPull(majorBank)]);
   }
+
   //create a newpassword array by joining all characters
   console.log(newPassword);
   newPassword = newPassword.join("");
