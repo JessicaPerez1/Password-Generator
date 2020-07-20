@@ -15,7 +15,7 @@ var sym = "!#$ %& '()*+,-./:;<=>?@[]^_`{|}~".split("");
 function generatePassword() {
   var majorBank = [];
   //ask user how long they want the password to be
-  passwordLength = prompt("Pick a number between 8 and 128");
+  passwordLength = prompt("Password length - Pick a number between 8 and 128");
   //if the password >128 or <8, or it's not a number, user does NOT meet creteria, run the function generatePassword again, if user input meets creteria, move on to next
   if (
     passwordLength.length === 0 ||
